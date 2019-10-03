@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PhotoCollectionViewCell" id="gTV-IL-0wX" customClass="PhotoCollectionViewCell" customModule="VirtualTourist" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="88" height="83"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="88" height="83"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2ey-3t-Vew">
+                        <rect key="frame" x="0.0" y="0.0" width="88" height="83"/>
+                    </imageView>
+                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="8EE-3D-EcW">
+                        <rect key="frame" x="34" y="31.5" width="20" height="20"/>
+                    </activityIndicatorView>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="2ey-3t-Vew" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Avr-rq-Dc4"/>
+                <constraint firstItem="8EE-3D-EcW" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="SpN-OS-3uP"/>
+                <constraint firstItem="8EE-3D-EcW" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="dyz-3g-sTH"/>
+                <constraint firstItem="2ey-3t-Vew" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="q65-jv-f65"/>
+                <constraint firstAttribute="bottom" secondItem="2ey-3t-Vew" secondAttribute="bottom" id="tQW-H9-Boh"/>
+                <constraint firstAttribute="trailing" secondItem="2ey-3t-Vew" secondAttribute="trailing" id="zrd-uP-OCn"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <size key="customSize" width="88" height="83"/>
+            <connections>
+                <outlet property="activityIndicator" destination="8EE-3D-EcW" id="mhl-1J-RCV"/>
+                <outlet property="photo" destination="2ey-3t-Vew" id="HLU-Rr-d9U"/>
+            </connections>
+            <point key="canvasLocation" x="165.21739130434784" y="134.26339285714286"/>
+        </collectionViewCell>
+    </objects>
+</document>

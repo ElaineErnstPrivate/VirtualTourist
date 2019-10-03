@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="pWZ-x8-t31">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Map View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="MapViewController" customModule="VirtualTourist" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="VbI-OS-d9r">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="CuI-Tw-JQR"/>
+                                </connections>
+                            </mapView>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BLC-8c-p8N">
+                                <rect key="frame" x="0.0" y="862" width="414" height="69"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TAP PINS TO DELETE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0i0-Vs-0gO">
+                                        <rect key="frame" x="129.5" y="24" width="155" height="21"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="17"/>
+                                        <color key="textColor" red="0.99989169840000003" green="1" blue="0.99988096950000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.90109783409999999" green="0.28453022239999998" blue="0.14888954160000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstItem="0i0-Vs-0gO" firstAttribute="centerX" secondItem="BLC-8c-p8N" secondAttribute="centerX" id="9Cw-OV-AFv"/>
+                                    <constraint firstAttribute="height" constant="69" id="FCA-qV-Flh"/>
+                                    <constraint firstItem="0i0-Vs-0gO" firstAttribute="centerY" secondItem="BLC-8c-p8N" secondAttribute="centerY" id="fHS-ea-epo"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="VbI-OS-d9r" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="ErA-MJ-G5j"/>
+                            <constraint firstItem="VbI-OS-d9r" firstAttribute="trailing" secondItem="BLC-8c-p8N" secondAttribute="trailing" id="emj-jr-cA1"/>
+                            <constraint firstItem="VbI-OS-d9r" firstAttribute="leading" secondItem="BLC-8c-p8N" secondAttribute="leading" id="fHt-R9-376"/>
+                            <constraint firstItem="VbI-OS-d9r" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="g0Z-h5-lwm"/>
+                            <constraint firstItem="BLC-8c-p8N" firstAttribute="top" secondItem="VbI-OS-d9r" secondAttribute="bottom" id="jMA-MR-WAZ"/>
+                            <constraint firstAttribute="trailing" secondItem="VbI-OS-d9r" secondAttribute="trailing" id="oNY-qk-6Hq"/>
+                            <constraint firstItem="VbI-OS-d9r" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="y3e-5C-yVD"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="91N-OS-eOj"/>
+                    <connections>
+                        <outlet property="deletingView" destination="BLC-8c-p8N" id="PYn-mJ-FuL"/>
+                        <outlet property="mapView" destination="VbI-OS-d9r" id="nzm-BH-4Pb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1957.9710144927537" y="138.61607142857142"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="DTz-wb-BFf">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="pWZ-x8-t31" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="FA0-B4-spO">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="eAS-kD-s6N"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uxd-7h-jLB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1047.8260869565217" y="138.61607142857142"/>
+        </scene>
+    </scenes>
+</document>
