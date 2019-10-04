@@ -23,6 +23,7 @@ class PhotoLibraryViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.noPhotoLabel.isHidden = true
         initializeCollectionView()
         getAllPhotos()
         setupMapView()
@@ -94,9 +95,36 @@ class PhotoLibraryViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func createNewCollection(_ sender: Any) {
+    func deletePhotos(){
         containsPhotos = false
-        setupPhotoCollection()
+        let photos = fetchResultsController.fetchedObjects
+        if let photos = photos {
+            for photo in photos {
+                dataModel.viewContext.delete(photo)
+                try? dataModel.viewContext.save()
+            }
+        }
+    }
+    @IBAction func createNewCollection(_ sender: Any) {
+        self.deletePhotos()
+        let page = Int.random(in: 0..<12)
+        self.viewModel.getPhotos(page:page, handler: { (photos, error) in
+            if let error = error{
+                print("Error:", error.localizedDescription)
+            }
+            else{
+                guard let photos = self.viewModel.photosFromFlickr else{
+                    return
+                }
+                if photos.photos.photo.count > 0{
+                    self.noPhotoLabel.isHidden = true
+                    self.savePhotos(photos)
+                }else{
+                    self.noPhotoLabel.isHidden = false
+                }
+                self.collectionView.reloadData()
+            }
+        })
     }
 }
 
@@ -144,6 +172,13 @@ extension PhotoLibraryViewController: UICollectionViewDelegate, UICollectionView
         }
         return cell ?? UICollectionViewCell()
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let photoToDelete = fetchResultsController.object(at: indexPath)
+        dataModel.viewContext.delete(photoToDelete)
+        try? dataModel.viewContext.save()
+    }
+
 }
 
 extension PhotoLibraryViewController: MKMapViewDelegate{
@@ -179,7 +214,6 @@ extension PhotoLibraryViewController: NSFetchedResultsControllerDelegate{
             currentPhoto.pin = viewModel.currentPin
             currentPhoto.url = photo.photoURL().absoluteString
             try? dataModel.viewContext.save()
-
            
         }
     }

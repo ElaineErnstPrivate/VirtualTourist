@@ -21,8 +21,8 @@ class ViewModel{
     var photosFromFlickr : PhotoResponse?
     var photos : [Photos] = []
    
-    func getPhotos(handler: @escaping(_ success: Bool ,_ error: NetworkError?) -> Void) {
-        let request = PhotoRequest(method: "flickr.photos.search", api_key: NetworkManager.shared.uniqueKey, lat: annotation.latitude, lon: annotation.longitude, format: "json", nojsoncallback: "1",per_page: 12, page: 1)
+    func getPhotos(page: Int? = 1 ,handler: @escaping(_ success: Bool ,_ error: NetworkError?) -> Void) {
+        let request = PhotoRequest(method: "flickr.photos.search", api_key: NetworkManager.shared.uniqueKey, lat: annotation.latitude, lon: annotation.longitude, format: "json", nojsoncallback: "1",per_page: 12, page: page!)
         self.manager.request(type: PhotoResponse.self, service: PhotosAPI.getPhotos(request: request)) { response in
             switch response {
             case .success(let photos):

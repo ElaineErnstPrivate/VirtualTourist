@@ -30,6 +30,9 @@ class MapViewController: UIViewController{
         addAnnotations()
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+//        fetchedResultsController = nil
+    }
     func addAnnotations(){
     
         var annotations = [MKPointAnnotation]()
@@ -97,6 +100,8 @@ extension MapViewController: MKMapViewDelegate{
     }
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        mapView.deselectAnnotation(view.annotation, animated: true)
+
         guard let annotation = view.annotation else{
             return
         }
@@ -110,6 +115,7 @@ extension MapViewController: MKMapViewDelegate{
                         mapView.removeAnnotation(annotation)
                     } else {
                         self.viewModel.currentPin = pin
+                        self.viewModel.annotation = annotation.coordinate
                         self.openPhotoLibrary()
                     }
                 }
